@@ -1,0 +1,52 @@
+
+.wrapper__inner{
+    width:25%;
+}
+.wrapper__inner-2{
+    width:70%;
+}
+li.card{
+    width:49%;
+}
+input{
+    margin-bottom:20px;
+}
+select{
+    margin-bottom: 10px;
+}
+.btn{
+    margin-top:10px;
+}
+.btn-outline-info{
+    margin:10px 10px 0 10px;
+}
+table td{
+    border: 1px solid rgb(195, 189, 189);
+    border-collapse: collapse;
+    padding:10px;
+}
+@media only screen and (max-width:992px){
+    .wrapper__inner{
+        width:48%;
+    }
+    .wrapper__inner-2{
+        width:48%;
+    }
+    li.card{
+        width:100%;
+    }
+}
+@media only screen and (max-width:576px){
+    .wrapper{
+        flex-direction: column;
+    }
+    .wrapper__inner{
+        width:100%;
+    }
+    .wrapper__inner-2{
+        width:100%;
+    }
+    li.card{
+        width:100%;
+    }
+}
