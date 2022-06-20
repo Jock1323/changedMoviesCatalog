@@ -5,7 +5,8 @@ let elSelect = document.querySelector('.select');
 let elTable=document.querySelector('.table');
 searchNumber.textContent = films.length;
 let selectarr = [];
-let bookmarked=[];
+let localData=JSON.parse(window.localStorage.getItem('films'))
+let bookmarked=localData || [];
 //select menu
 let selectMenu = (fullArray) => {
     fullArray.forEach(item => {
@@ -34,6 +35,7 @@ elUnordered.addEventListener('click',(evt)=>{
         if(!bookmarked.includes(findElement)){
             bookmarked.push(findElement);
         }
+        window.localStorage.setItem('films',JSON.stringify(bookmarked));
         elTable.innerHTML=null;
         renderBookmarkeds(bookmarked);
     }
@@ -46,9 +48,14 @@ elTable.addEventListener('click',(evt)=>{
     if(evt.target.matches('.remove')){
         bookmarked.splice(findIndex,1);
         elTable.innerHTML=null;
+        window.localStorage.setItem('films',JSON.stringify(bookmarked));
+        if(bookmarked.length===0){
+            window.localStorage.removeItem('films');
+        }
         renderBookmarkeds(bookmarked);
     }
 })
+
 // search btn click
 elForm.addEventListener('submit', evt => {
     evt.preventDefault();
@@ -91,7 +98,7 @@ let renderBookmarkeds=(bookmarkedArray)=>{
     
     });
 }
-
+renderBookmarkeds(bookmarked);
 //RenderMovies
 let renderMovies = (fullArray) => {
     fullArray.forEach(item => {
