@@ -35,8 +35,8 @@ elUnordered.addEventListener('click',(evt)=>{
         if(!bookmarked.includes(findElement)){
             bookmarked.push(findElement);
         }
-        window.localStorage.setItem('films',JSON.stringify(bookmarked));
         elTable.innerHTML=null;
+        window.localStorage.setItem('films',JSON.stringify(bookmarked));
         renderBookmarkeds(bookmarked);
     }
 })
